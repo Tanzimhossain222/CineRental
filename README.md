@@ -1,0 +1,1 @@
+# CineRental: Your One-Stop React App for Movie Magic and Rentals
