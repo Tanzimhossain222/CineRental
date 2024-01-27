@@ -9,7 +9,7 @@ import CartDetails from "./cine/CartDetails";
 
 const Header = () => {
   const [showCart, setShowCart] = useState(false);
-  const { cartData } = useMovieDetails();
+  const { state } = useMovieDetails();
   const { darktheme, setDarkTheme } = useTheme();
 
   const handleCardShow = () => {
@@ -55,9 +55,9 @@ const Header = () => {
                 onClick={handleCardShow}
               >
                 <img src={CartLogo} width="24" height="24" alt="Cart" />
-                {cartData.length > 0 && (
+                {state.cartData.length > 0 && (
                   <span className="bg-primary text-[#171923] rounded-full w-4 h-4 text-center text-xs absolute -top-1 -right-1">
-                    {cartData.length}
+                    {state.cartData.length}
                   </span>
                 )}
               </a>

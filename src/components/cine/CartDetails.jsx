@@ -3,12 +3,11 @@ import { useMovieDetails } from "../../context";
 import CartItems from "./CartItems";
 
 const CartDetails = ({ onClose }) => {
-  const { cartData, setCartData } = useMovieDetails();
+  const { state, dispatch } = useMovieDetails();
 
-  const handleDelete = (e, id) => {
+  const handleDelete = (e, item) => {
     e.preventDefault();
-    const filterItem = cartData.filter((item) => item.id !== id);
-    setCartData(filterItem);
+    dispatch({ type: "REMOVE_FROM_CART", payload: item });
   };
 
   return (
@@ -19,8 +18,8 @@ const CartDetails = ({ onClose }) => {
             Your Carts
           </h2>
           <div className="space-y-8 lg:space-y-12 max-h-[450px] overflow-auto mb-10 lg:mb-14">
-            {cartData.length > 0 ? (
-              cartData.map((item) => (
+            {state.cartData.length > 0 ? (
+              state.cartData.map((item) => (
                 <CartItems key={item.id} item={item} onDelete={handleDelete} />
               ))
             ) : (

@@ -7,10 +7,10 @@ export const ThemeContext = createContext();
  *  @description - Custom hook for using the MovieContext context. This hook is used to access the context values. Avoids Multiple imports of useContext.
  * @returns {MovieContext}
  */
-export function useMovieDetails(){
+export function useMovieDetails() {
     return useContext(MovieContext);
 }
 
-export function useTheme(){
+export function useTheme() {
     return useContext(ThemeContext);
 }
