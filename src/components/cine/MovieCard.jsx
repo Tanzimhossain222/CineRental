@@ -1,6 +1,6 @@
 import { useState } from "react";
 import tag from "../../assets/tag.svg";
-import useMovieDetails from "../../context";
+import { useMovieDetails } from "../../context";
 import { getImgUrl } from "../../utils/cine-utils";
 import MovieDetailsModal from "./MovieDetailsModal";
 import Rating from "./Rating";

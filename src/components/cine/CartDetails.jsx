@@ -1,5 +1,5 @@
 import checkOut from "../../assets/icons/checkout.svg";
-import useMovieDetails from "../../context";
+import { useMovieDetails } from "../../context";
 import CartItems from "./CartItems";
 
 const CartDetails = ({ onClose }) => {
