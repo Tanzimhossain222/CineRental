@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import checkOut from "../../assets/icons/checkout.svg";
 import { useMovieDetails } from "../../context";
 import CartItems from "./CartItems";
@@ -8,6 +9,10 @@ const CartDetails = ({ onClose }) => {
   const handleDelete = (e, item) => {
     e.preventDefault();
     dispatch({ type: "REMOVE_FROM_CART", payload: item });
+    toast.error(`The Movie ${item.title} is removed from the cart!`, {
+      position: "bottom-right",
+      autoClose: 1000,
+    });
   };
 
   return (

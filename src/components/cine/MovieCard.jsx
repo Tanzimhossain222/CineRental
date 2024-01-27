@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import tag from "../../assets/tag.svg";
 import { useMovieDetails } from "../../context";
 import { getImgUrl } from "../../utils/cine-utils";
@@ -27,11 +28,18 @@ const MovieCard = ({ movie }) => {
     const found = state.cartData.find((item) => item.id === movie.id);
 
     if (found) {
-      alert(`The Movie ${movie.title} is already in the cart!`);
+      toast.error(`The Movie ${movie.title} is already added to the cart!`, {
+        position: "bottom-right",
+        autoClose: 1500,
+      });
       return;
     }
 
     dispatch({ type: "ADD_TO_CART", payload: { ...movie } });
+    toast.success(`The Movie ${movie.title} is added to the cart!`, {
+      position: "bottom-right",
+      autoClose: 1500,
+    });
   };
 
   return (
@@ -61,14 +69,14 @@ const MovieCard = ({ movie }) => {
             <div className="flex items-center space-x-1 mb-5">
               <Rating value={movie.rating} />
             </div>
-            <a
+            <button
               className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm"
               href="#"
               onClick={(e) => handleAddToCart(e, movie)}
             >
               <img src={tag} alt="tag" />
               <span>${movie.price} | Add to Cart</span>
-            </a>
+            </button>
           </figcaption>
         </a>
       </figure>
