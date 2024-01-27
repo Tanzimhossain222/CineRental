@@ -1,4 +1,5 @@
 import star from "../../assets/star.svg";
+
 const Rating = ({ value }) => {
   const stars = Array(value).fill(star);
   return (
