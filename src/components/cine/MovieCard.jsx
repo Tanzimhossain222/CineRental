@@ -1,3 +1,4 @@
+import PropsType from "prop-types";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import tag from "../../assets/tag.svg";
@@ -82,6 +83,10 @@ const MovieCard = ({ movie }) => {
       </figure>
     </>
   );
+};
+
+MovieCard.propTypes = {
+  movie: PropsType.object.isRequired,
 };
 
 export default MovieCard;

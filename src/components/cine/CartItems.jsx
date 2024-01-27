@@ -1,3 +1,4 @@
+import PropsType from "prop-types";
 import deleteLogo from "../../assets/delete.svg";
 import { getImgUrl } from "../../utils/cine-utils";
 
@@ -29,6 +30,11 @@ const CartItems = ({ item, onDelete }) => {
       </div>
     </div>
   );
+};
+
+CartItems.propTypes = {
+  item: PropsType.object.isRequired,
+  onDelete: PropsType.func.isRequired,
 };
 
 export default CartItems;

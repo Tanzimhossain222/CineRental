@@ -7,6 +7,7 @@ import RingLogo from "./../assets/ring.svg";
 import CartLogo from "./../assets/shopping-cart.svg";
 import CartDetails from "./cine/CartDetails";
 
+
 const Header = () => {
   const [showCart, setShowCart] = useState(false);
   const { state } = useMovieDetails();

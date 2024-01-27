@@ -1,3 +1,4 @@
+import PropsType from "prop-types";
 import star from "../../assets/star.svg";
 
 const Rating = ({ value }) => {
@@ -9,6 +10,10 @@ const Rating = ({ value }) => {
       ))}
     </>
   );
+};
+
+Rating.propTypes = {
+  value: PropsType.number.isRequired,
 };
 
 export default Rating;

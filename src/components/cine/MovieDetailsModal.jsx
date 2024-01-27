@@ -1,3 +1,4 @@
+import PropsType from "prop-types";
 import { getImgUrl } from "../../utils/cine-utils";
 
 const MovieDetailsModal = ({ movie, onClose, onCartAdd }) => {
@@ -45,6 +46,12 @@ const MovieDetailsModal = ({ movie, onClose, onCartAdd }) => {
       </div>
     </div>
   );
+};
+
+MovieDetailsModal.propTypes = {
+  movie: PropsType.object.isRequired,
+  onClose: PropsType.func.isRequired,
+  onCartAdd: PropsType.func.isRequired,
 };
 
 export default MovieDetailsModal;

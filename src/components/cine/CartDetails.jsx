@@ -1,3 +1,4 @@
+import PropsType from "prop-types";
 import { toast } from "react-toastify";
 import checkOut from "../../assets/icons/checkout.svg";
 import { useMovieDetails } from "../../context";
@@ -55,6 +56,10 @@ const CartDetails = ({ onClose }) => {
       </div>
     </div>
   );
+};
+
+CartDetails.propTypes = {
+  onClose: PropsType.func.isRequired,
 };
 
 export default CartDetails;
