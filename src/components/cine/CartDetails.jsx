@@ -1,9 +1,16 @@
+import checkOut from "../../assets/icons/checkout.svg";
 import useMovieDetails from "../../context";
 import CartItems from "./CartItems";
-import checkOut from "../../assets/icons/checkout.svg";
 
-const CartDetails = ({ movie, onClose }) => {
-  const { cartData } = useMovieDetails();
+const CartDetails = ({ onClose }) => {
+  const { cartData, setCartData } = useMovieDetails();
+
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+    const filterItem = cartData.filter((item) => item.id !== id);
+    setCartData(filterItem);
+  };
+
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm">
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[420px] sm:max-w-[600px] lg:max-w-[790px] p-4 max-h-[90vh] overflow-auto">
@@ -12,22 +19,24 @@ const CartDetails = ({ movie, onClose }) => {
             Your Carts
           </h2>
           <div className="space-y-8 lg:space-y-12 max-h-[450px] overflow-auto mb-10 lg:mb-14">
-            {cartData.length > 0 &&
+            {cartData.length > 0 ? (
               cartData.map((item) => (
-                <CartItems key={item.id} item={item} />
-              ))}
+                <CartItems key={item.id} item={item} onDelete={handleDelete} />
+              ))
+            ) : (
+              <div className="flex items-center justify-center h-[150px]">
+                <p className="text-[#74766F] dark:text-gray-200 text-xl">
+                  No item in cart
+                </p>
+              </div>
+            )}
           </div>
           <div className="flex items-center justify-end gap-2">
             <a
               className="rounded-md p-2 md:px-4 inline-flex items-center space-x-2 bg-primary text-[#171923] text-sm"
               href="#"
             >
-              <img
-                src={checkOut}
-                width="24"
-                height="24"
-                alt="checkout"
-              />
+              <img src={checkOut} width="24" height="24" alt="checkout" />
               <span>Checkout</span>
             </a>
             <a

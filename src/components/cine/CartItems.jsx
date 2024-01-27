@@ -1,7 +1,7 @@
 import { getImgUrl } from "../../utils/cine-utils";
 import deleteLogo from "../../assets/delete.svg";
 
-const CartItems = ({ item }) => {
+const CartItems = ({ item, onDelete }) => {
   return (
     <div key={item.id} className="grid grid-cols-[1fr_auto] gap-4">
       <div className="flex items-center gap-4">
@@ -19,7 +19,7 @@ const CartItems = ({ item }) => {
         </div>
       </div>
       <div className="flex justify-between gap-4 items-center">
-        <button className="bg-[#D42967] rounded-md p-2 md:px-4 inline-flex items-center space-x-2 text-white">
+        <button className="bg-[#D42967] rounded-md p-2 md:px-4 inline-flex items-center space-x-2 text-white" onClick={(e)=>onDelete(e, item.id)}>
           <img className="w-5 h-5" src={deleteLogo} alt="delete" />
           <span className="max-md:hidden">Remove</span>
         </button>
